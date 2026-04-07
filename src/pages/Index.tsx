@@ -1,15 +1,6 @@
-import { useState } from "react";
 import pennyImage from "@/assets/lucky-penny.png";
 
 const Index = () => {
-  const [email, setEmail] = useState("");
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (email) setSubmitted(true);
-  };
-
   return (
     <div className="min-h-screen bg-background flex flex-col items-center justify-center px-6 relative overflow-hidden">
       {/* Subtle radial glow */}
@@ -51,35 +42,6 @@ const Index = () => {
           <br />
           Stay tuned — good luck is just around the corner.
         </p>
-
-        {/* Email form */}
-        <div
-          className="animate-fade-in-up w-full max-w-sm"
-          style={{ animationDelay: "0.4s" }}
-        >
-          {!submitted ? (
-            <form onSubmit={handleSubmit} className="flex gap-3">
-              <input
-                type="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                placeholder="your@email.com"
-                className="flex-1 px-4 py-3 rounded-lg bg-secondary border border-border text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary/50 transition-all"
-              />
-              <button
-                type="submit"
-                className="px-6 py-3 rounded-lg bg-primary text-primary-foreground font-medium hover:opacity-90 transition-opacity"
-              >
-                Notify Me
-              </button>
-            </form>
-          ) : (
-            <p className="text-primary font-medium text-lg">
-              ✨ You're on the list! We'll be in touch.
-            </p>
-          )}
-        </div>
 
         {/* Footer */}
         <p
